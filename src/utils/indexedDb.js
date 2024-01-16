@@ -118,6 +118,7 @@ export async function addFile({creatorId, file, fileName, fileSize, createdDate,
       createdDate,
       creatorName,
       creatorLastName,
+      sharedWith:[],
       type,
     };
 
@@ -213,12 +214,12 @@ export async function shareFile({ fileId, userIdToAdd, currentUserId }) {
     }
 
     // Verificar si el usuario ya tiene acceso al archivo
-    if (file.sharedWithMe.includes(userIdToAdd)) {
+    if (file.sharedWith.includes(userIdToAdd)) {
       throw new Error('El usuario ya tiene acceso al archivo.');
     }
 
     // Compartir el archivo con el nuevo usuario
-    file.sharedWithMe.push(userIdToAdd);
+    file.sharedWith.push(userIdToAdd);
     await filesStore.put(file);
 
     // Agregar el archivo compartido a la lista de archivos compartidos del nuevo usuario
