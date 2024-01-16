@@ -20,8 +20,8 @@ export async function openDatabase() {
       fileStore.createIndex('creatorId', 'creatorId', { unique: false });
  
       // Create the 'sharedWithMe' index on the 'archivos' object store
-      if (!fileStore.indexNames.contains('sharedWithMe')) {
-        fileStore.createIndex('sharedWithMe', 'sharedWithMe', { multiEntry: true });
+      if (!fileStore.indexNames.contains('sharedWith')) {
+        fileStore.createIndex('sharedWith', 'sharedWith', { multiEntry: true });
       }
 
     };
