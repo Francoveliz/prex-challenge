@@ -18,6 +18,7 @@ export const UploadFileButton = (props: Props) => {
 
   const onSubmit = async () => {
     if (!file) return;
+    if (!storageUser) return;
 
     try {
       console.log({ file });

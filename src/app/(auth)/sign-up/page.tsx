@@ -25,7 +25,6 @@ const formSchema = z.object({
 
 export default function SignIn() {
   const router = useRouter();
-  const { setCurrentUser } = useCurrentUserContext();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -47,8 +46,6 @@ export default function SignIn() {
         console.log('El correo electrónico ya está en uso');
         return;
       }
-      console.log("second current user", { newUser });
-      setCurrentUser(newUser);
       const userId = await addUser(newUser);
       console.log('Usuario registrado con éxito. ID:', userId, { newUser });
       router.push("/login");

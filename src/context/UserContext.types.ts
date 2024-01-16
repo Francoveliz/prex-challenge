@@ -14,5 +14,5 @@ export type CurrentUserContextData = {
   getUserFiles: () => void;
   getSharedFiles: () => void;
   storageUser: User | null;
-  setStorageUser: (newValue: User) => void;
+  setStorageUser: (newValue: User | null) => void;
 };

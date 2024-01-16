@@ -25,6 +25,7 @@ export const FileCard = ({ fileName, creatorName, creatorLastName, fileSize, id,
   const { getUserFiles, getSharedFiles, storageUser } = useCurrentUserContext();
 
   const getAllUsersToShare = async () => {
+    if (!storageUser) return;
     const allUsersDB = await getAllUsers(storageUser.id);
     setAllUsers(allUsersDB);
   };
@@ -60,6 +61,7 @@ export const FileCard = ({ fileName, creatorName, creatorLastName, fileSize, id,
   };
 
   const handleShare = async () => {
+    if (!storageUser) return;
     try {
       await shareFile({ fileId: id, userIdToAdd: selectedUserId, currentUserId: storageUser.id });
       setShareModalIsOpen(false);
@@ -128,7 +130,7 @@ export const FileCard = ({ fileName, creatorName, creatorLastName, fileSize, id,
         {/* DELETE */}
         <Dialog open={deleteModalIsOpen} onOpenChange={handleOpenDeleteModal}>
           <DialogTrigger asChild>
-            {creatorId === storageUser.id && (
+            {(creatorId === storageUser?.id) && (
               <Button
                 className="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-50 flex items-center gap-2"
                 variant="outline"
