@@ -28,19 +28,13 @@ export const CurrentUserProvider: React.FC<ProviderProps> = ({ children }) => {
 
   const getUserFiles = async () => {
     if (!storageUser) return;
-    console.log("getUserFiles");
-    console.log({ storageUser });
     const dbUserFiles = await getFilesCreatedByUser(storageUser.id);
-    console.log({ dbUserFiles });
     setUserFiles(dbUserFiles);
   };
 
   const getSharedFiles = async () => {
     if (!storageUser) return;
-    console.log("getSharedFiles");
-    console.log({ storageUser });
     const dbSharedFiles = await getSharedFilesToUser(storageUser.id);
-    console.log({ dbSharedFiles });
     setSharedFiles(dbSharedFiles);
   };
 

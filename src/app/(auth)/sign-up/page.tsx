@@ -38,7 +38,6 @@ export default function SignIn() {
 
   async function onSignUp(values: z.infer<typeof formSchema>) {
     const newUser = { ...values };
-    console.log({ newUser });
     try {
       const emailTaken = await isEmailTaken(newUser.email);
 

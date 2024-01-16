@@ -21,7 +21,6 @@ export const UploadFileButton = (props: Props) => {
     if (!storageUser) return;
 
     try {
-      console.log({ file });
       await addFile({ creatorId: storageUser.id, fileName: file.name, fileSize: file.size, createdDate: new Date(), file: file, creatorName: storageUser.name, creatorLastName: storageUser.lastName, type: file.type });
       getUserFiles();
       getSharedFiles();

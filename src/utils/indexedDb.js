@@ -185,7 +185,6 @@ export async function getFilesCreatedByUser(userId) {
 }
 
 export async function shareFile({ fileId, userIdToAdd, currentUserId }) {
-  console.log({ fileId, userIdToAdd, currentUserId });
   try {
     const db = await openDatabase();
     const transaction = db.transaction(['archivos', 'usuarios'], 'readwrite');
@@ -285,24 +284,20 @@ export async function getSharedFilesToUser(userId) {
     const transaction = db.transaction(['archivos'], 'readonly');
     const filesStore = transaction.objectStore('archivos');
     const index = filesStore.index('sharedWithMe');
-    console.log({index})
     // Use IDBKeyRange.only to match the userId
     const cursorRequest = index.openCursor(IDBKeyRange.only(userId));
-    console.log({cursorRequest})
 
     return new Promise((resolve, reject) => {
       const sharedWithMe = [];
 
       cursorRequest.onsuccess = (event) => {
         const cursor = event.target.result;
-        console.log({cursor})
         if (cursor) {
           const file = cursor.value;
           sharedWithMe.push(file);
           cursor.continue();
         } else {
           // When there are no more files, resolve the promise with the list of shared files
-          console.log({sharedWithMe})
           resolve(sharedWithMe);
         }
       };
