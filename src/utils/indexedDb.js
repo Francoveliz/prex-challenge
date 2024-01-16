@@ -284,22 +284,22 @@ export async function getSharedFilesToUser(userId) {
     const db = await openDatabase();
     const transaction = db.transaction(['archivos'], 'readonly');
     const filesStore = transaction.objectStore('archivos');
-    const index = filesStore.index('sharedWithMe');
+    const index = filesStore.index('sharedWith');
     // Use IDBKeyRange.only to match the userId
     const cursorRequest = index.openCursor(IDBKeyRange.only(userId));
 
     return new Promise((resolve, reject) => {
-      const sharedWithMe = [];
+      const sharedWith = [];
 
       cursorRequest.onsuccess = (event) => {
         const cursor = event.target.result;
         if (cursor) {
           const file = cursor.value;
-          sharedWithMe.push(file);
+          sharedWith.push(file);
           cursor.continue();
         } else {
           // When there are no more files, resolve the promise with the list of shared files
-          resolve(sharedWithMe);
+          resolve(sharedWith);
         }
       };
 
