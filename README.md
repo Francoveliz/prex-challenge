@@ -42,7 +42,7 @@ Este desafío consiste en desarrollar una aplicación con Next.js que gestione e
 
 Abrir [http://localhost:3000](http://localhost:3000) en el navegador para ver el resultado.
 
-## Expliacion de las decisiones tomadas
+## Explicación de las decisiones tomadas
 
 La primera decisión importante fue el uso de la base de datos de navegador indexedDb, la cual me permitió almacenar la información tanto de los archivos como de los usuarios, además de permitirme la persistencia de la información.
 
