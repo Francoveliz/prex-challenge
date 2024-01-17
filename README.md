@@ -2,8 +2,16 @@
 
 Este desafío consiste en desarrollar una aplicación con Next.js que gestione el registro, inicio de sesión y actividades relacionadas con la carga, visualización y compartición de archivos por parte de los usuarios.
 
+## Demo
+
+[https://prex-challenge.netlify.app/](https://prex-challenge.netlify.app/)
+
+![Preview](./public/preview.png)
+![Preview](./public/preview-2.png)
+
 ## Features
 
+- Vista mobile.
 - La implementación de IndexedDB posibilita la creación y almacenamiento local tanto de la información de los usuarios como de los archivos.
 - Registro e Inicio de Sesión:
   - Implementacion de sistema de registro e inicio de sesión con los datos básicos     necesarios.
