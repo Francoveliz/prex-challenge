@@ -41,3 +41,11 @@ Este desafío consiste en desarrollar una aplicación con Next.js que gestione e
 ```
 
 Abrir [http://localhost:3000](http://localhost:3000) en el navegador para ver el resultado.
+
+## Expliacion de las decisiones tomadas
+
+La primera decisión importante fue el uso de la base de datos de navegador indexedDb, la cual me permitió almacenar la información tanto de los archivos como de los usuarios, además de permitirme la persistencia de la información.
+
+Luego en cuanto estilado, me incline por la librerías tailwind, la cual me parece la más flexible y conveniente en cuanto a optimización y personalización, de igual manera por las mismas razones elegí la librería de componentes shadcn, ya que ambas se complementan perfectamente.
+
+Luego en cuanto al manejo estados globales, utilice el hook useContext, y un custom hook llamado useLocalStorage para el resto de la información.
