@@ -88,7 +88,7 @@ export default function Login() {
                 )}
               />
               <p className='text-red-500'>{error}</p>
-              <Button className='w-full mt-4' type="submit">Iniciar sesion</Button>
+              <Button className='w-full mt-4' type="submit">Iniciar sesión</Button>
             </form>
           </Form>
 
