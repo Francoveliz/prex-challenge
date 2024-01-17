@@ -21,16 +21,13 @@ export const Header = () => {
   if (pathname.includes("login") || pathname.includes("sign-up") || !storageUser) return <></>;
 
   return (
-    <header className="flex h-20 w-full shrink-0 items-center px-4 md:px-6 container">
-      <Link className="mr-6" href="/">
+    <header className="flex h-20 justify-between items-center flex-row-reverse md:flex-row px-4 md:px-6 container gap-4">
+      <Link className="hidden lg:block" href="/">
         <HomeIcon className="h-6 w-6" />
         <span className="sr-only">Home</span>
       </Link>
-
       <UploadFileButton />
-      <div className="ml-auto flex gap-2">
-        <Button variant="outline" onClick={handleLogout}>Cerrar sesión</Button>
-      </div>
+      <Button variant="outline" onClick={handleLogout}>Cerrar sesión</Button>
     </header>
   );
 }

@@ -38,9 +38,9 @@ export const UploadFileButton = (props: Props) => {
   return (
     <Dialog open={modalIsOpen} onOpenChange={handleOpenModal}>
       <DialogTrigger asChild>
-        <Button className="ml-auto" variant="outline" onClick={handleOpenModal}>
+        <Button variant="default" onClick={handleOpenModal}>
           <UploadIcon className="h-6 w-6 mr-2" />
-          Cargar Archivo
+          Cargar archivo
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">

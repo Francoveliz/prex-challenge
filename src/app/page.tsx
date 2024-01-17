@@ -29,14 +29,14 @@ export default function Home() {
       <div>
         <h2 className="mb-4 font-bold text-2xl">Mis archivos</h2>
         <div className="flex flex-col gap-2">
-          {userFiles.length === 0 && <p>Aun no tienes archivos propios</p>}
+          {userFiles.length === 0 && <p>Aún no tienes archivos propios</p>}
           {userFiles && userFiles.map((file: any) => <FileCard key={file.id} {...file} />)}
         </div>
       </div>
       <div>
         <h2 className="mb-4 font-bold text-2xl">Archivos que me compartieron</h2>
         <div className="flex flex-col gap-2">
-          {sharedFiles.length === 0 && <p>Aun no te compartieron archivos</p>}
+          {sharedFiles.length === 0 && <p>Aún no te compartieron archivos</p>}
           {sharedFiles && sharedFiles.map((file: any) => <FileCard key={file.id} {...file} />)}
         </div>
       </div>

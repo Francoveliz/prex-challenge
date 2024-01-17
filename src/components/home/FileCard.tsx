@@ -83,12 +83,12 @@ export const FileCard = ({ fileName, creatorName, creatorLastName, fileSize, id,
   };
 
   return (
-    <div className="flex items-center justify-between p-4 bg-white shadow rounded-lg dark:bg-gray-950">
-      <div className="flex-1 grid gap-2">
-        <h3 className="font-semibold">{fileName}</h3>
-        <p className="text-sm text-gray-500 dark:text-gray-400">Size: {Number(fileSize / 1024 / 1024).toFixed(2)} MB | Creator:{`${creatorName} ${creatorLastName}`}</p>
+    <div className="flex flex-col md:flex-row items-start md:items-center justify-between p-4 bg-white shadow rounded-lg dark:bg-gray-950">
+      <div className="flex-1 grid">
+        <h3 className="font-semibold ">{fileName}</h3>
+        <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 md:mb-0">Tamaño: {Number(fileSize / 1024 / 1024).toFixed(2)} MB | Autor: {`${creatorName} ${creatorLastName}`}</p>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="flex items-center ml-auto mr-0  space-x-2">
         {/* DOWNLOAD */}
         <Button className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-50 flex items-center gap-2"
           onClick={handleDownload} variant="outline"
@@ -102,7 +102,7 @@ export const FileCard = ({ fileName, creatorName, creatorLastName, fileSize, id,
                 variant="outline"
                 onClick={handleOpenShareModal}
               >
-                <Share1Icon className="w-4 h-4" /> Compartir
+                <Share1Icon className="w-4 h-4" /> <span className='hidden lg:block'>Compartir</span>
               </Button>
             )}
           </DialogTrigger>
@@ -136,7 +136,7 @@ export const FileCard = ({ fileName, creatorName, creatorLastName, fileSize, id,
                 variant="outline"
                 onClick={handleOpenDeleteModal}
               >
-                <TrashIcon className="w-4 h-4" /> Eliminar
+                <TrashIcon className="w-4 h-4" /> <span className='hidden lg:block'>Eliminar</span>
               </Button>
             )}
           </DialogTrigger>
